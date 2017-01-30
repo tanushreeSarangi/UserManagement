@@ -29,3 +29,11 @@ textarea {
         padding: 0;
     }
 }
+
+.btn-margin {
+    margin:2px;
+    margin-top:10px;
+}
+.Hidden{
+   display:none;
+}

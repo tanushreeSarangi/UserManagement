@@ -5,6 +5,7 @@ using System.Web;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 
 namespace UserManagement.DAL
 {
@@ -65,8 +66,6 @@ namespace UserManagement.DAL
                     command.Parameters.Add(new SqlParameter("@FirstName", userObj.FirstName));
                     command.Parameters.Add(new SqlParameter("@LastName", userObj.LastName));
                     command.Parameters.Add(new SqlParameter("@Email", userObj.Email));
-                    command.Parameters.Add(new SqlParameter("@TempPwd", userObj.TempPwd));
-                    command.Parameters.Add(new SqlParameter("@Password", userObj.Password));
                     command.Parameters.Add(new SqlParameter("@Property", userObj.Property));
                     command.Parameters.Add(new SqlParameter("@Group_", userObj.Group));
                     command.Parameters.Add(new SqlParameter("@Timezone", userObj.Timezone));
@@ -103,7 +102,7 @@ namespace UserManagement.DAL
         }
 
         // method for viewing all the users :
-        public static int GetUserDB()
+        public static void  GetUserDB(GridView gridView)
         {
        
             using (SqlConnection myConnection = new SqlConnection(ConnectionString))
@@ -116,13 +115,12 @@ namespace UserManagement.DAL
                     myConnection.Open();
                     SqlDataAdapter sda1 = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
+                     
                     
                     sda1.Fill(dt);
-                    gvViewAllUsers.DataSource = dt;
-                    gvViewAllUsers.DataBind();
-                    //command.Parameters.Add(new SqlParameter("@UserID", userID));
-                    return command.ExecuteNonQuery();
-
+                    gridView.DataSource = dt;
+                    gridView.DataBind(); 
+                   
 
                 }
             }

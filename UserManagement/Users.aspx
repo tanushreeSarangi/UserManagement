@@ -2,16 +2,14 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-   
     <div class="panel panel-default">
      <div class="panel-body">
         User Managment Form 
+         <asp:LoginStatus ID="LoginStatus" runat="server" CssClass="text-right" />
       </div>
    </div>
     <div class="row">
-        
         <div class="col-md-4">
-          
          <div class="form-group">
           <label for=" firstNamelbl">First Name</label>
             <asp:HiddenField ID="userID" Value="" runat="server"/>
@@ -24,7 +22,6 @@
             <asp:TextBox ID = "tempPassword" class="form-control" runat="server"/>
             <label for="confPassowrd">Confirm Password</label>
            <asp:TextBox ID="confPassowrd" class="form-control" runat="server"/>
-
            <label for="Property">Property</label>
              <asp:DropDownList id="property" class="form-control" runat="server">
              <asp:ListItem >Select a value</asp:ListItem>
@@ -33,7 +30,7 @@
 
               <label for="group">Group</label>
              <asp:DropDownList id="group" class="form-control" runat="server">
-             <asp:ListItem Value="select" Selected Text="Select a value" /> 
+             <asp:ListItem Value="select"  Text="Select a value" Selected /> 
              <asp:ListItem Value ="Manager" Text="Corporate Management" />
              <asp:ListItem Value="Admin" Text="Admin" />
              <asp:ListItem Value="entry" Text="Entry User" />   
